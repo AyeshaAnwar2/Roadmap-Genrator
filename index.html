@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Road-map Generator</title>
+
+    <link rel="stylesheet" href="src/output.css" />
+
+    <!-- Global gradient background -->
+    <style>
+      body {
+        background: linear-gradient(135deg, #0ea5e9, #6366f1, #ec4899);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+      }
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen text-gray-100 font-serif flex flex-col">
+    <!-- HEADER -->
+    <header class="pt-20 pb-8 text-center">
+      <h1 class="text-4xl font-extrabold tracking-tight drop-shadow-lg">
+        🚀 Road-map Generator
+      </h1>
+      <p class="mt-2 ml-6 opacity-90">
+        Choose a tech field to get a guided path
+      </p>
+    </header>
+
+    <!-- FIELD DROPDOWN -->
+    <main class="flex-grow container mx-auto px-10 max-w-4xl">
+      <form id="searchForm" class="flex gap-4 mb-8">
+        <select
+          id="fieldSelect"
+          required
+          class="flex-grow rounded-xl pl-4 py-3 text-black bg-white/20 backdrop-blur focus:ring-2 focus:ring-white focus:outline-none"
+        >
+          <option value="" disabled selected hidden>
+            e.g. Frontend Development
+          </option>
+          <!-- options are injected by main.js -->
+        </select>
+
+        <button
+          class="px-6 py-3 rounded-xl font-semibold bg-white/20 hover:bg-white/30 backdrop-blur"
+        >
+          Go
+        </button>
+      </form>
+
+      <!-- HOURS‑PER‑DAY SLIDER -->
+      <section id="planner" class="hidden mb-10">
+        <label class="block mb-2 font-semibold"
+          >How many hours can you study
+          <span class="underline">per day</span>?</label
+        >
+        <input
+          id="hoursPerDay"
+          type="range"
+          min="1"
+          max="8"
+          value="2"
+          step="1"
+          class="w-full accent-pink-400"
+        />
+        <div class="flex justify-between text-sm mt-1">
+          <span>1 h</span><span>8 h</span>
+        </div>
+        <p id="eta" class="mt-3 text-center text-lg font-medium"></p>
+      </section>
+
+      <!-- ROAD‑MAP RENDER TARGET -->
+      <section
+        id="roadmap"
+        class="space-y-6 transition-all duration-300"
+      ></section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-6 text-center text-xs opacity-70">
+      &copy; 2025 All Reserved By Ayesha Anwar & Abdul Hanan
+    </footer>
+
+    <!-- DATA + LOGIC -->
+    <script src="index.js"></script>
+    <script src="index2.js"></script>
+  </body>
+</html>
